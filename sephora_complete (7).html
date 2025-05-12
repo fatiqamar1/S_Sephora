@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sephora Beauty Store</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff4f8;
+      color: #4b2e2e;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background-color: #ffb6c1;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    nav {
+      background-color: #ffc0cb;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #4b2e2e;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    section {
+      padding: 30px 20px;
+    }
+    h2 {
+      color: #d63384;
+      text-align: center;
+    }
+    .products, .offers, .reviews, .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .card {
+      background-color: #ffe6ef;
+      border: 1px solid #f7cdd4;
+      border-radius: 10px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(255, 192, 203, 0.2);
+    }
+    .card img {
+      border-radius: 10px;
+      width: 150px;
+      height: auto;
+      cursor: pointer;
+    }
+    form {
+      background-color: #fff0f5;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 4px 8px rgba(255, 192, 203, 0.2);
+    }
+    input[type="text"], input[type="password"], input[type="email"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #f4c2c2;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      width: 100%;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #ff1493;
+    }
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #ff69b4;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .cart-popup {
+      display: none;
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      background-color: white;
+      border: 1px solid #ffb6c1;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 0 10px pink;
+    }
+    .cart-popup h4 {
+      margin-top: 0;
+      color: #d63384;
+    }
+    .cart-popup ul {
+      list-style: none;
+      padding: 0;
+    }
+    .cart-popup ul li {
+      padding: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Welcome to Sephora</h1>
+  <p>Discover Your Beauty</p>
+</header>
+
+<div class="cart-icon" onclick="toggleCart()">🛒</div>
+
+<div class="cart-popup" id="cart">
+  <h4>Your Shopping Cart</h4>
+  <ul>
+    <li>Rare Beauty Blush</li>
+    <li>Glow Recipe Serum</li>
+    <li>Dior Lip Glow</li>
+  </ul>
+</div>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#products">Products</a>
+  <a href="#offers">Offers</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p style="text-align:center;">Sephora is your go-to destination for the best beauty products. We offer makeup, skincare, and fragrance from top brands around the world.</p>
+</section>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">
+      <h3>Fast Delivery</h3>
+      <p>Receive your orders within 48 hours!</p>
+    </div>
+    <div class="card">
+      <h3>Makeup Consultation</h3>
+      <p>Get personalized beauty advice from our experts.</p>
+    </div>
+    <div class="card">
+      <h3>Gift Wrapping</h3>
+      <p>Special gift wrap for every order!</p>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <h2>Top Sephora Picks</h2>
+  <div class="products">
+    <div class="card">
+      <a href="https://www.sephora.com/product/rare-beauty-soft-pinch-liquid-blush-P97989728" target="_blank">
+        <img src="https://www.sephora.com/productimages/sku/s2551205-main-zoom.jpg" alt="Rare Beauty Blush">
+      </a>
+      <h3>Rare Beauty Blush</h3>
+      <p>Soft Pinch Liquid Blush</p>
+    </div>
+    <div class="card">
+      <a href="https://www.sephora.com/product/huda-beauty-nude-obsessions-eyeshadow-palette-P87788378" target="_blank">
+        <img src="https://www.sephora.com/productimages/sku/s2031398-main-zoom.jpg" alt="Huda Beauty Palette">
+      </a>
+      <h3>Huda Beauty Palette</h3>
+      <p>Nude Obsessions Eyeshadow</p>
+    </div>
+    <div class="card">
+      <a href="https://www.sephora.com/product/glow-recipe-watermelon-glow-niacinamide-dew-drops-P468456" target="_blank">
+        <img src="https://www.sephora.com/productimages/sku/s2541867-main-zoom.jpg" alt="Glow Recipe Serum">
+      </a>
+      <h3>Glow Recipe Serum</h3>
+      <p>Watermelon Glow Niacinamide</p>
+    </div>
+    <div class="card">
+      <a href="https://www.sephora.com/product/dior-addict-lip-glow-P210595" target="_blank">
+        <img src="https://www.sephora.com/productimages/sku/s2646856-main-zoom.jpg" alt="Dior Lip Glow">
+      </a>
+      <h3>Dior Lip Glow</h3>
+      <p>Color Reviver Balm</p>
+    </div>
+    <div class="card">
+      <a href="https://www.sephora.com/product/fenty-beauty-by-rihanna-gloss-bomb-universal-lip-luminizer-P67988407" target="_blank">
+        <img src="https://www.sephora.com/productimages/sku/s2618978-main-zoom.jpg" alt="Fenty Lip Gloss">
+      </a>
+      <h3>Fenty Gloss Bomb</h3>
+      <p>Universal Lip Luminizer</p>
+    </div>
+    <div class="card">
+      <a href="https://www.sephora.com/product/too-faced-better-than-sex-volumizing-mascara-P170029" target="_blank">
+        <img src="https://www.sephora.com/productimages/sku/s2399085-main-zoom.jpg" alt="Too Faced Mascara">
+      </a>
+      <h3>Too Faced Mascara</h3>
+      <p>Better Than Sex Mascara</p>
+    </div>
+  </div>
+</section>
+
+<section id="offers">
+  <h2>Special Offers</h2>
+  <div class="offers">
+    <div class="card">
+      <h3>Summer Sale</h3>
+      <p>Up to 50% off skincare!</p>
+    </div>
+    <div class="card">
+      <h3>Buy 1 Get 1</h3>
+      <p>On all lip products this week!</p>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <h2>Customer Reviews</h2>
+  <div class="reviews">
+    <div class="card">
+      <p>"The blush from Rare Beauty is amazing! Looks natural and soft."</p>
+      <strong>- Hala</strong>
+    </div>
+    <div class="card">
+      <p>"I love Sephora! Fast delivery and super cute packaging."</p>
+      <strong>- Dana</strong>
+    </div>
+    <div class="card">
+      <p>"Glow Recipe serum made my skin glow in 3 days!"</p>
+      <strong>- Nour</strong>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+    <label for="message">Message:</label>
+    <textarea id="message" rows="4" required></textarea>
+    <input type="submit" value="Send Message">
+  </form>
+</section>
+
+<section>
+  <h2>Subscribe to Our Newsletter</h2>
+  <form>
+    <input type="email" placeholder="Enter your email" required>
+    <input type="submit" value="Subscribe">
+  </form>
+</section>
+
+<footer>
+  <p>Contact us: info@sephora.com | Instagram: @sephora | TikTok: @sephora_ksa</p>
+</footer>
+
+<script>
+  function toggleCart() {
+    var cart = document.getElementById("cart");
+    cart.style.display = cart.style.display === "block" ? "none" : "block";
+  }
+</script>
+
+</body>
+</html>
